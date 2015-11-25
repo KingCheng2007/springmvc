@@ -1,0 +1,52 @@
+package com.solomon.controller;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.solomon.entity.CarInfo;
+import com.solomon.service.CarInfoManager;
+
+@Controller
+@RequestMapping("/carInfo")
+public class CarInfoController extends BaseController {
+
+	@Autowired
+	@Qualifier("carInfoManager")
+	private CarInfoManager carInfoManager;
+
+	@RequestMapping("/toJson")
+	@ResponseBody
+	public Map<String, Object> getListMap() {
+		List<CarInfo> list = carInfoManager.listCarInfoAll();
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("total", list.size());
+		map.put("data", list);
+		return map;
+	}
+	
+	@RequestMapping("/toList")
+	public String list(HttpServletRequest request) {
+		return "/carInfoList";
+	}
+	
+	@RequestMapping("/toGetCarInfo")
+	public String toGetCarInfo(String paramId, HttpServletRequest request) {
+		request.setAttribute("carInfo", carInfoManager.getCarInfoById(paramId));
+		return "carInfoDetail";
+	}
+	
+	@RequestMapping("/toCarInfoDetail")
+	public String toCarInfoDetail() {
+		return "/carInfoDetail";
+	}
+
+}

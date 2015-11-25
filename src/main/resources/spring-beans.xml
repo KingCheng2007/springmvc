@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- dao层配置 -->
+	<bean id="userDao" class="com.solomon.dao.imp.UserDaoImpl"  parent="baseDao"/>
+	<bean id="customerUserDao" class="com.solomon.dao.imp.CustomerUserDaoImpl"  parent="baseDao"/>
+	<bean id="crmCustomerDao" class="com.solomon.dao.imp.CrmCustomerDaoImpl"  parent="baseDao"/>
+	<bean id="soBoatForeDao" class="com.solomon.dao.imp.SoBoatForeDaoImpl"  parent="baseDao"/>
+	<bean id="dredgingNoticeDao" class="com.solomon.dao.imp.DredgingNoticeDaoImpl"  parent="baseDao"/>
+	
+	
+	<!-- service层配置 -->
+	<bean id="userManagerBase" class="com.solomon.service.imp.UserManagerImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	<bean id="customerUserManagerBase" class="com.solomon.service.imp.CustomerUserManagerImpl">
+		<property name="customerUserDao" ref="customerUserDao"></property>
+	</bean>
+	<bean id="crmCustomerManagerBase" class="com.solomon.service.imp.CrmCustomerManagerImpl">
+		<property name="crmCustomerDao" ref="crmCustomerDao"></property>
+	</bean>
+	<bean id="netPreManagerBase" class="com.solomon.service.imp.NetPreManagerImpl">
+		<property name="soBoatForeDao" ref="soBoatForeDao"></property>
+	</bean>
+	<bean id="dredgingNoticeManagerBase" class="com.solomon.service.imp.DredgingNoticeManagerImpl">
+		<property name="dredgingNoticeDao" ref="dredgingNoticeDao"></property>
+	</bean>
+
+	<!-- 代理配置 -->
+	<bean name="userManager" parent="transactionProxy">
+		<property name="target" ref="userManagerBase"></property>
+	</bean>
+	<bean name="customerUserManager" parent="transactionProxy">
+		<property name="target" ref="customerUserManagerBase"></property>
+	</bean>
+	<bean name="crmCustomerManager" parent="transactionProxy">
+		<property name="target" ref="crmCustomerManagerBase"></property>
+	</bean>
+	<bean name="netPreManager" parent="transactionProxy">
+		<property name="target" ref="netPreManagerBase"></property>
+	</bean>
+	<bean name="dredgingNoticeManager" parent="transactionProxy">
+		<property name="target" ref="dredgingNoticeManagerBase"></property>
+	</bean>
+	
+	<!-- xml配置，也可以使用全注解，参考CarInfoXXX系列的配置 -->
+</beans>
