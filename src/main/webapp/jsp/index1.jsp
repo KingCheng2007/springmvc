@@ -44,9 +44,8 @@
 					<tr>
 						<td>${user.userName }</td>
 						<td>${user.age }</td>
-						<td><a
-							href="user/getUser?id=${user.id }">编辑</a>
-							<a href="javascript:del('${user.id }')">删除</a></td>
+						<td><a href="user/getUser?id=${user.id }">编辑</a> <a
+							href="javascript:del('${user.id }')">删除</a></td>
 					</tr>
 				</c:forEach>
 			</c:if>

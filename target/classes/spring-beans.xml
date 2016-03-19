@@ -6,13 +6,17 @@
 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- dao层配置 -->
-	<bean id="userDao" class="com.solomon.dao.imp.UserDaoImpl"  parent="baseDao"/>
-	<bean id="customerUserDao" class="com.solomon.dao.imp.CustomerUserDaoImpl"  parent="baseDao"/>
-	<bean id="crmCustomerDao" class="com.solomon.dao.imp.CrmCustomerDaoImpl"  parent="baseDao"/>
-	<bean id="soBoatForeDao" class="com.solomon.dao.imp.SoBoatForeDaoImpl"  parent="baseDao"/>
-	<bean id="dredgingNoticeDao" class="com.solomon.dao.imp.DredgingNoticeDaoImpl"  parent="baseDao"/>
-	
-	
+	<bean id="userDao" class="com.solomon.dao.imp.UserDaoImpl" parent="baseDao" />
+	<bean id="customerUserDao" class="com.solomon.dao.imp.CustomerUserDaoImpl"
+		parent="baseDao" />
+	<bean id="crmCustomerDao" class="com.solomon.dao.imp.CrmCustomerDaoImpl"
+		parent="baseDao" />
+	<bean id="soBoatForeDao" class="com.solomon.dao.imp.SoBoatForeDaoImpl"
+		parent="baseDao" />
+	<bean id="dredgingNoticeDao" class="com.solomon.dao.imp.DredgingNoticeDaoImpl"
+		parent="baseDao" />
+
+
 	<!-- service层配置 -->
 	<bean id="userManagerBase" class="com.solomon.service.imp.UserManagerImpl">
 		<property name="userDao" ref="userDao"></property>
@@ -46,6 +50,6 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean name="dredgingNoticeManager" parent="transactionProxy">
 		<property name="target" ref="dredgingNoticeManagerBase"></property>
 	</bean>
-	
+
 	<!-- xml配置，也可以使用全注解，参考CarInfoXXX系列的配置 -->
 </beans>

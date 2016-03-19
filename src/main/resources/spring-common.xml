@@ -27,13 +27,9 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 			</props>
 		</property>
 		<!-- 注解扫描的包 -->
-				
-		<!-- <property name="annotatedClasses">
-			<list>
-				<value>com.solomon.beans.DredgingNoticeBean</value>
-				<value>com.solomon.beans.NetPreBean</value> 
-			</list>
-		</property> -->
+
+		<!-- <property name="annotatedClasses"> <list> <value>com.solomon.beans.DredgingNoticeBean</value> 
+			<value>com.solomon.beans.NetPreBean</value> </list> </property> -->
 		<property name="packagesToScan">
 			<list>
 				<value>com.solomon.beans</value>

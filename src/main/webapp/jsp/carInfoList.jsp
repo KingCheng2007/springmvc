@@ -16,7 +16,7 @@
 
 <body>
 	<div class="container">
-	<%@ include file="nav.jsp"%>
+		<%@ include file="nav.jsp"%>
 		<div align="left">
 			<ol class="breadcrumb">
 				<li><a href="sign">首页</a></li>
@@ -24,7 +24,7 @@
 			</ol>
 		</div>
 		<form method="post" action="" id="form">
-			<input type="hidden" name ="paramId" id="paramId"/>
+			<input type="hidden" name="paramId" id="paramId" />
 		</form>
 		<div class="btn-toolbar" role="toolbar" aria-label="..." id="toolbar">
 			<div class="btn-group" role="group" aria-label="...">
@@ -37,30 +37,29 @@
 				<button type="button" class="btn btn-default" name="toggle">切换</button>
 			</div>
 		</div>
-		<table  id="table"
-				data-toggle="table" 
-				data-url="carInfo/toJson" 
-				data-search="true"
-				data-show-refresh="true"
-				data-show-toggle="true"
-				data-show-columns="true"
-				data-row-style="rowStyle"
-				data-flat="true"
-				data-pagination="true"
-				data-detail-formatter="detailFormatter"
-				data-mobile-responsive="true"
-				data-toolbar="#toolbar"
-				>
+		<table id="table" data-toggle="table" data-url="carInfo/toJson"
+			data-search="true" data-show-refresh="true" data-show-toggle="true"
+			data-show-columns="true" data-row-style="rowStyle" data-flat="true"
+			data-pagination="true" data-detail-formatter="detailFormatter"
+			data-mobile-responsive="true" data-toolbar="#toolbar">
 			<thead>
 				<tr>
 					<th data-field="state" data-radio="true"></th>
-					<th data-field="carno" data-sortable="true" data-halign="center" data-align="center" >车牌号</th>
-					<th data-field="vehidelength" data-sortable="true" data-halign="center" data-align="center">车长</th>
-					<th data-field="vehidewidth" data-sortable="true" data-halign="center" data-align="center">车宽度</th>
-					<th data-field="vehideheight" data-sortable="true" data-halign="center" data-align="center">车高度</th>
-					<th data-field="vehidemounted" data-sortable="true" data-halign="center" data-align="center">载重吨</th>
-					<th data-field="electiontag" data-sortable="true" data-halign="center" data-align="center">电子标签</th>
-					<th data-field="carStatus" data-sortable="true" data-halign="center" data-align="center" data-formatter="statusFormatter">状态</th>
+					<th data-field="carno" data-sortable="true" data-halign="center"
+						data-align="center">车牌号</th>
+					<th data-field="vehidelength" data-sortable="true"
+						data-halign="center" data-align="center">车长</th>
+					<th data-field="vehidewidth" data-sortable="true"
+						data-halign="center" data-align="center">车宽度</th>
+					<th data-field="vehideheight" data-sortable="true"
+						data-halign="center" data-align="center">车高度</th>
+					<th data-field="vehidemounted" data-sortable="true"
+						data-halign="center" data-align="center">载重吨</th>
+					<th data-field="electiontag" data-sortable="true"
+						data-halign="center" data-align="center">电子标签</th>
+					<th data-field="carStatus" data-sortable="true"
+						data-halign="center" data-align="center"
+						data-formatter="statusFormatter">状态</th>
 				</tr>
 			</thead>
 		</table>
@@ -68,7 +67,7 @@
 	</div>
 
 	<%@ include file="footer.html"%>
-	<script >
+	<script>
 		/* function rowStyle(row, index) {
 			var classes = [ 'warning', 'danger','' ];
 			return {

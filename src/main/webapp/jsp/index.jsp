@@ -5,17 +5,16 @@
 %>
 <!DOCTYPE html>
 <html lang="zh">
-  <head>
-    <base href="<%=basePath%>">
-    <title>首页</title>
-    <%@ include file="header.html"%>
-  </head>
-  
-  <body>
-    <%@ include file="nav.jsp"%>
-    <div class="container">
-    </div>
-  	<%@ include file="footer.html"%>
-  </body>
+<head>
+<base href="<%=basePath%>">
+<title>首页</title>
+<%@ include file="header.html"%>
+</head>
+
+<body>
+	<%@ include file="nav.jsp"%>
+	<div class="container"></div>
+	<%@ include file="footer.html"%>
+</body>
 
 </html>
